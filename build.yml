@@ -208,11 +208,9 @@ services:
     redis-4.0.0-alpine: { build: { context: ., dockerfile: generated/Dockerfile.4.0.0-alpine }, image: 'benzine/redis:4.0.0-alpine' }
     redis-4.0.0-32bit: { build: { context: ., dockerfile: generated/Dockerfile.4.0.0-32bit }, image: 'benzine/redis:4.0.0-32bit' }
     redis-4.0.0: { build: { context: ., dockerfile: generated/Dockerfile.4.0.0 }, image: 'benzine/redis:4.0.0' }
-    redis-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.nanoserver }, image: 'benzine/redis:nanoserver' }
     redis-3-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.3-nanoserver }, image: 'benzine/redis:3-nanoserver' }
     redis-3.2-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.3.2-nanoserver }, image: 'benzine/redis:3.2-nanoserver' }
     redis-3.2.100-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.3.2.100-nanoserver }, image: 'benzine/redis:3.2.100-nanoserver' }
-    redis-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.windowsservercore }, image: 'benzine/redis:windowsservercore' }
     redis-3-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.3-windowsservercore }, image: 'benzine/redis:3-windowsservercore' }
     redis-3.2-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.3.2-windowsservercore }, image: 'benzine/redis:3.2-windowsservercore' }
     redis-3.2.100-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.3.2.100-windowsservercore }, image: 'benzine/redis:3.2.100-windowsservercore' }
