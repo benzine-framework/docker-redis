@@ -77,8 +77,8 @@ foreach($results as $result) {
     file_put_contents($dockerfile, implode("\n", $dockerfileLines));
 }
 
-rsort($travisYaml['env']);
-$travisYaml['env'] = array_slice($travisYaml['env'],0,200);
+sort($travisYaml['env']);
+$travisYaml['env'] = array_slice($travisYaml['env'],-200,200);
 
 file_put_contents("build.yml", Yaml::dump($buildYaml));
 
