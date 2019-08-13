@@ -1,0 +1,5 @@
+# From upstream 3.2.4-32bit
+FROM redis:3.2.4-32bit
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD redis-cli PING 

@@ -1,0 +1,5 @@
+# From upstream 5.0-rc3-stretch
+FROM redis:5.0-rc3-stretch
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD redis-cli PING 
