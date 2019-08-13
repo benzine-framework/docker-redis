@@ -42,7 +42,7 @@ $travisYaml = [
     ],
     'matrix' => [
         'allow_failures' => [
-            'VERSION' => [ 'windowsservercode', 'nanoserver' ],
+            'env' => [ 'VERSION=windowsservercode', 'VERSION=nanoserver' ],
         ],
     ],
     'env' => [],
