@@ -12,6 +12,8 @@ script:
 after_script:
     - 'docker-compose -f build.yml push redis-$VERSION'
 env:
+    - VERSION=3.2.3-alpine
+    - VERSION=3.2.4
     - VERSION=3.2.4-32bit
     - VERSION=3.2.4-alpine
     - VERSION=3.2.5
@@ -20,8 +22,6 @@ env:
     - VERSION=3.2.6
     - VERSION=3.2.6-32bit
     - VERSION=3.2.6-alpine
-    - VERSION=3.2.6-nanoserver
-    - VERSION=3.2.6-windowsservercore
     - VERSION=3.2.7
     - VERSION=3.2.7-32bit
     - VERSION=3.2.7-alpine

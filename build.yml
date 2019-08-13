@@ -233,8 +233,6 @@ services:
     redis-3.2.6-alpine: { build: { context: ., dockerfile: generated/Dockerfile.3.2.6-alpine }, image: 'benzine/redis:3.2.6-alpine' }
     redis-3.2.6-32bit: { build: { context: ., dockerfile: generated/Dockerfile.3.2.6-32bit }, image: 'benzine/redis:3.2.6-32bit' }
     redis-3.2.6: { build: { context: ., dockerfile: generated/Dockerfile.3.2.6 }, image: 'benzine/redis:3.2.6' }
-    redis-3.2.6-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.3.2.6-nanoserver }, image: 'benzine/redis:3.2.6-nanoserver' }
-    redis-3.2.6-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.3.2.6-windowsservercore }, image: 'benzine/redis:3.2.6-windowsservercore' }
     redis-3.0.7-nanoserver: { build: { context: ., dockerfile: generated/Dockerfile.3.0.7-nanoserver }, image: 'benzine/redis:3.0.7-nanoserver' }
     redis-3.0.7-windowsservercore: { build: { context: ., dockerfile: generated/Dockerfile.3.0.7-windowsservercore }, image: 'benzine/redis:3.0.7-windowsservercore' }
     redis-3.2.5-32bit: { build: { context: ., dockerfile: generated/Dockerfile.3.2.5-32bit }, image: 'benzine/redis:3.2.5-32bit' }

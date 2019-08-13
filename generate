@@ -7,7 +7,7 @@ use \Symfony\Component\Yaml\Yaml;
 
 $image = "library/redis";
 $stumpName = explode("/", $image,2)[1];
-$excludedTags = ['windowsservercore', 'nanoserver'];
+$excludedTags = ['windowsservercore', 'nanoserver', '3.2.6-windowsservercore', '3.2.6-nanoserver',];
 
 $client = new \GuzzleHttp\Client();
 
