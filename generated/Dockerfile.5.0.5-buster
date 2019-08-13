@@ -1,4 +1,4 @@
-# From upstream 5.0.5-buster
+# From upstream redis:5.0.5-buster
 FROM redis:5.0.5-buster
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \

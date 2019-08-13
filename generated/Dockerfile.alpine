@@ -1,4 +1,4 @@
-# From upstream alpine
+# From upstream redis:alpine
 FROM redis:alpine
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \

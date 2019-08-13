@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 require_once __DIR__ . "/vendor/autoload.php";
@@ -5,6 +6,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 use \Symfony\Component\Yaml\Yaml;
 
 $image = "library/redis";
+$stumpName = explode("/", $image,2)[1];
 $excludedTags = ['windowsservercore', 'nanoserver'];
 
 $client = new \GuzzleHttp\Client();
@@ -39,10 +41,10 @@ $travisYaml = [
         'sudo mv docker-compose /usr/local/bin',
     ],
     'script' => [
-        'docker-compose -f build.yml build redis-$VERSION'
+        "docker-compose -f build.yml build $stumpName-\$VERSION",
     ],
     'after_script' => [
-        'docker-compose -f build.yml push redis-$VERSION'
+        "docker-compose -f build.yml push $stumpName-\$VERSION",
     ],
     'env' => [],
 ];
@@ -53,18 +55,21 @@ $buildYaml = [
 ];
 
 foreach($results as $result) {
+    if(!isset($result['name']))
+        continue;
+
     if(in_array($result['name'], $excludedTags))
         continue;
 
     $dockerfileLines = [];
-    $dockerfileLines[] = "# From upstream {$result['name']}";
-    $dockerfileLines[] = "FROM redis:{$result['name']}";
+    $dockerfileLines[] = "# From upstream {$stumpName}:{$result['name']}";
+    $dockerfileLines[] = "FROM {$stumpName}:{$result['name']}";
     $dockerfileLines[] = "# Add healthcheck";
     $dockerfileLines[] = "HEALTHCHECK --interval=30s --timeout=3s \\";
     $dockerfileLines[] = "  CMD redis-cli PING ";
 
     $dockerfile = "generated/Dockerfile.{$result['name']}";
-    $buildYaml['services']['redis-' . $result['name']] = [
+    $buildYaml['services'][$stumpName . '-' . $result['name']] = [
         'build' => [
             'context' => '.',
             'dockerfile' => $dockerfile

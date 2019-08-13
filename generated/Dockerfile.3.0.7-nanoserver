@@ -1,4 +1,4 @@
-# From upstream 3.0.7-nanoserver
+# From upstream redis:3.0.7-nanoserver
 FROM redis:3.0.7-nanoserver
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \

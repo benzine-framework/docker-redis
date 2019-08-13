@@ -1,4 +1,4 @@
-# From upstream 3.0.0
+# From upstream redis:3.0.0
 FROM redis:3.0.0
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \

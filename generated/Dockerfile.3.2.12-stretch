@@ -1,4 +1,4 @@
-# From upstream 3.2.12-stretch
+# From upstream redis:3.2.12-stretch
 FROM redis:3.2.12-stretch
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \

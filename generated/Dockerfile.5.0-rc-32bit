@@ -1,4 +1,4 @@
-# From upstream 5.0-rc-32bit
+# From upstream redis:5.0-rc-32bit
 FROM redis:5.0-rc-32bit
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=3s \
