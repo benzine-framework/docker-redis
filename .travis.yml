@@ -10,6 +10,8 @@ script:
     - 'docker-compose -f build.yml build redis-$VERSION'
 after_script:
     - 'docker-compose -f build.yml push redis-$VERSION'
+matrix:
+    allow_failures: { VERSION: [windowsservercode, nanoserver] }
 env:
     - VERSION=windowsservercore
     - VERSION=stretch

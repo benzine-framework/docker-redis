@@ -40,6 +40,11 @@ $travisYaml = [
     'after_script' => [
         'docker-compose -f build.yml push redis-$VERSION'
     ],
+    'matrix' => [
+        'allow_failures' => [
+            'VERSION' => [ 'windowsservercode', 'nanoserver' ],
+        ],
+    ],
     'env' => [],
 ];
 
@@ -72,7 +77,6 @@ foreach($results as $result) {
 
 rsort($travisYaml['env']);
 $travisYaml['env'] = array_slice($travisYaml['env'],0,200);
-
 
 file_put_contents("build.yml", Yaml::dump($buildYaml));
 
