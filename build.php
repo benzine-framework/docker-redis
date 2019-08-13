@@ -4,11 +4,14 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 use \Symfony\Component\Yaml\Yaml;
 
+$image = "library/redis";
+$excludedTags = ['windowsservercore', 'nanoserver'];
+
 $client = new \GuzzleHttp\Client();
 
 $allLoaded = false;
 $results = [];
-$url = "https://hub.docker.com/v2/repositories/library/redis/tags/";
+$url = "https://hub.docker.com/v2/repositories/{$image}/tags/";
 while($allLoaded == false) {
     $data = $client->get($url)->getBody()->getContents();
     $json = json_decode($data, true);
@@ -41,11 +44,6 @@ $travisYaml = [
     'after_script' => [
         'docker-compose -f build.yml push redis-$VERSION'
     ],
-    'matrix' => [
-        'allow_failures' => [
-            'env' => [ 'VERSION=windowsservercode', 'VERSION=nanoserver' ],
-        ],
-    ],
     'env' => [],
 ];
 
@@ -55,6 +53,9 @@ $buildYaml = [
 ];
 
 foreach($results as $result) {
+    if(in_array($result['name'], $excludedTags))
+        continue;
+
     $dockerfileLines = [];
     $dockerfileLines[] = "# From upstream {$result['name']}";
     $dockerfileLines[] = "FROM redis:{$result['name']}";
