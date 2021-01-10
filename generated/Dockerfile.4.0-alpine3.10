@@ -1,5 +1,0 @@
-# From upstream redis:4.0-alpine3.10
-FROM redis:4.0-alpine3.10
-# Add healthcheck
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD redis-cli PING 

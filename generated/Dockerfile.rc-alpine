@@ -1,5 +1,0 @@
-# From upstream redis:rc-alpine
-FROM redis:rc-alpine
-# Add healthcheck
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD redis-cli PING 

@@ -1,5 +1,0 @@
-# From upstream redis:32bit-stretch
-FROM redis:32bit-stretch
-# Add healthcheck
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD redis-cli PING 
